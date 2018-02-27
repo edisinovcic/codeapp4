@@ -1,0 +1,10 @@
+version: '2'
+services:
+    local-postgresql:
+        container_name: local-postgresql
+        image: postgres:9.5.4
+        environment:
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+        ports:
+            - 1950:1950
