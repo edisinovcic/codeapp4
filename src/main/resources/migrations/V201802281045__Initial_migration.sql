@@ -1,0 +1,33 @@
+CREATE SCHEMA IF NOT EXISTS CodeApp;
+
+CREATE TABLE users (
+  id SERIAL,
+  username VARCHAR(500),
+  email VARCHAR(100),
+  phone VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE city (
+  id SERIAL,
+  name VARCHAR(500),
+  latitude VARCHAR(500),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE post (
+  id SERIAL,
+  description VARCHAR(5000),
+  user_id INT NULL ,
+  city_id INT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (city_id) REFERENCES city(id)
+);
+
