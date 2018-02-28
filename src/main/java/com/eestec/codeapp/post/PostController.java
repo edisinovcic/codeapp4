@@ -22,7 +22,7 @@ public class PostController {
         return new RestResponse(true).setData(postService.fetchAll());
     }
 
-    @GetMapping
+    @GetMapping(value = "{id}")
     public RestResponse findOne(@RequestParam(value = "id") Long id) {
         return new RestResponse(true).setData(postService.fetchOne(id));
     }

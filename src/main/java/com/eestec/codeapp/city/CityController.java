@@ -22,7 +22,7 @@ public class CityController {
         return new RestResponse(true).setData(cityService.fetchAll());
     }
 
-    @GetMapping
+    @GetMapping(value = "{id}")
     public RestResponse findOne(@PathVariable(value = "id") Long id) {
         return new RestResponse(true).setData(cityService.fetchOne(id));
     }

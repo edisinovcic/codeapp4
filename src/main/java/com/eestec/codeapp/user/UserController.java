@@ -22,7 +22,7 @@ public class UserController {
         return new RestResponse(true).setData(userService.fetchAll());
     }
 
-    @GetMapping
+    @GetMapping(value = "{id}")
     public RestResponse findOne(@RequestParam(value = "id") Long id) {
         return new RestResponse(true).setData(userService.fetchOne(id));
     }
